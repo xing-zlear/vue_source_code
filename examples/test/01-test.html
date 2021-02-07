@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>Document</title>
+</head>
+<body>
+	<div id="app">
+		<!-- <template id="item"> -->
+			<h3>{{arr}}</h3>
+			<textarea v-model="val"></textarea>
+			<button @click="handle">111</button>
+		<!-- </template> -->
+	</div>
+	<script src="../../dist/vue.js"></script>
+	<script>
+		new Vue({
+			el: '#app',
+			// template: '#item',
+			data() {
+				return {
+					arr: ['吃', '税'],
+					val: ''
+				}
+			},
+			mounted() {
+				this.arr[1] = 'wavv' // 界面不会更新 在vue中通过索引修改数组中的数据页面是不会改变的也就不是响应式
+				// this.arr.length = 0 // 无效
+				console.log(this.arr)
+			},
+			methods: {
+				handle() {
+					console.log(this.val.split(/[\s\n]/))
+				}
+			}
+		})
+	</script>
+</body>
+</html>
